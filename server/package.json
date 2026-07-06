@@ -1,0 +1,16 @@
+{
+  "name": "zip-uploader-server",
+  "version": "1.0.0",
+  "description": "Express server that accepts .zip uploads up to 300MB and stores them on disk",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "multer": "^2.0.1"
+  }
+}

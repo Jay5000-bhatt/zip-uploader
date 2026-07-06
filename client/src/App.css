@@ -1,0 +1,292 @@
+:root {
+  --ink: #12141a;
+  --ink-panel: #1a1d24;
+  --paper-line: #2a2e37;
+  --amber: #e2a63b;
+  --amber-dim: #7a5c26;
+  --teal: #5fb8ac;
+  --text-primary: #ecebe6;
+  --text-muted: #8b8f99;
+  --danger: #e0685a;
+  --success: #5fb8ac;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text-primary);
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(226, 166, 59, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(95, 184, 172, 0.05), transparent 45%);
+}
+
+.manifest-card {
+  width: 100%;
+  max-width: 460px;
+  background: var(--ink-panel);
+  border: 1px solid var(--paper-line);
+  border-radius: 4px;
+  padding: 36px 32px 32px;
+  position: relative;
+}
+
+.manifest-card::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed var(--paper-line);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.manifest-header {
+  margin-bottom: 28px;
+}
+
+.tag {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--amber);
+  border: 1px solid var(--amber-dim);
+  padding: 3px 8px;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+.manifest-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.subhead {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.dropzone {
+  display: block;
+  border: 1.5px solid var(--paper-line);
+  border-radius: 3px;
+  padding: 28px 20px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.dropzone:hover {
+  border-color: var(--amber-dim);
+}
+
+.dropzone.active {
+  border-color: var(--amber);
+  background: rgba(226, 166, 59, 0.06);
+}
+
+.dropzone.has-file {
+  border-style: solid;
+  border-color: var(--teal);
+  background: rgba(95, 184, 172, 0.06);
+}
+
+.dropzone-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.dropzone-icon {
+  font-size: 22px;
+  color: var(--amber);
+}
+
+.dropzone-copy strong {
+  color: var(--text-primary);
+}
+
+.dropzone-copy p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.file-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.file-name {
+  font-size: 14px;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-size {
+  font-size: 12px;
+  color: var(--teal);
+  flex-shrink: 0;
+}
+
+.error-text {
+  color: var(--danger);
+  font-size: 13px;
+  margin: 14px 0 0;
+}
+
+.progress-track {
+  position: relative;
+  margin-top: 18px;
+  height: 22px;
+  background: var(--ink);
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--amber-dim), var(--amber));
+  transition: width 0.12s linear;
+}
+
+.progress-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+}
+
+.success-box {
+  margin-top: 18px;
+  border: 1px solid var(--teal);
+  background: rgba(95, 184, 172, 0.07);
+  border-radius: 3px;
+  padding: 16px 18px;
+}
+
+.success-title {
+  margin: 0 0 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--teal);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.success-box dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  font-size: 13px;
+}
+
+.success-box dt {
+  color: var(--text-muted);
+}
+
+.success-box dd {
+  margin: 0;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.actions {
+  margin-top: 22px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 3px;
+  background: var(--amber);
+  color: #1a1305;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #f0b754;
+}
+
+.submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.submit-btn.secondary {
+  background: transparent;
+  border: 1px solid var(--teal);
+  color: var(--teal);
+}
+
+.submit-btn.secondary:hover {
+  background: rgba(95, 184, 172, 0.08);
+}
+
+.submit-btn:focus-visible,
+.dropzone:focus-within {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress-fill,
+  .submit-btn {
+    transition: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .manifest-card {
+    padding: 28px 20px 24px;
+  }
+}
